@@ -1,16 +1,15 @@
 import * as React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { FaBars } from 'react-icons/fa'
-import { menuData } from '../data/MenuData'
+import { FaBars } from "react-icons/fa"
+import { menuData } from "../data/MenuData"
 import { Button } from "./Button"
 
-const Header = () => {
+const Header = ({ toggle }) => {
   return (
     <Nav>
       <NavLink to="/">EXPLOREX</NavLink>
-      <Bars />
-
+      <Bars onClick={toggle} />
       <NavMenu>
         {menuData.map((item, index) => (
           <NavLink to={item.link} key={index}>
@@ -20,12 +19,10 @@ const Header = () => {
       </NavMenu>
 
       <NavBtn>
-        <Button primary= "true" round= "true" to="/trips">
+        <Button primary="true" round="true" to="#trips">
           Book Flight
         </Button>
       </NavBtn>
-
-
     </Nav>
   )
 }
@@ -37,7 +34,7 @@ const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px)/2);
+  padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
   position: relative;
 `

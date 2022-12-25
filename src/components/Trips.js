@@ -31,7 +31,7 @@ const Trips = ({heading}) => {
     const tripsArray = []
     data.allTripsJson.edges.forEach((item, index) => {
       tripsArray.push(
-        <ProductCard keys={index}>
+        <ProductCard key={index}>
           <ProductImg
             src={item.node.img.childImageSharp.fluid.src}
             alt={item.node.alt}
@@ -61,7 +61,7 @@ const Trips = ({heading}) => {
     return tripsArray
   }
   return (
-    <ProductsContainer>
+    <ProductsContainer id="trips">
       <ProductsHeading>{heading}</ProductsHeading>
       <ProductsWrapper>{getTrips(data)}</ProductsWrapper>
     </ProductsContainer>

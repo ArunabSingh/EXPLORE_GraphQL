@@ -28,7 +28,7 @@ const Testimonials = () => {
   `)
 
   return (
-    <TestimonialsContainer>
+    <TestimonialsContainer id="about">
       <TopLine>Testimonials</TopLine>
       <Description>What are the people saying....</Description>
       <ContentWrapper>

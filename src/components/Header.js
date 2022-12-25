@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { FaBars } from "react-icons/fa"
 import { menuData } from "../data/MenuData"
 import { Button } from "./Button"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const Header = ({ toggle }) => {
   return (
@@ -15,6 +16,7 @@ const Header = ({ toggle }) => {
           <NavLink to={item.link} key={index}>
             {item.title}
           </NavLink>
+
         ))}
       </NavMenu>
 
@@ -39,7 +41,7 @@ const Nav = styled.nav`
   position: relative;
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled(AnchorLink)`
   color: white;
   display: flex;
   align-items: center;

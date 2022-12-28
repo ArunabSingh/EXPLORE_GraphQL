@@ -1,22 +1,24 @@
 import React from "react"
 import styled from "styled-components"
 import { StatsData } from "../data/StatsData"
-
+import { Fade } from "react-awesome-reveal"
 
 const Stats = () => {
   return (
     <StatsContainer>
       <Heading>Why Choose Us?</Heading>
       <Wrapper>
-        {StatsData.map((item, index) => {
-          return (
-            <StatsBox key={index}>
-              <Icon>{item.icon}</Icon>
-              <Title>{item.title}</Title>
-              <Description>{item.desc}</Description>
-            </StatsBox>
-          )
-        })}
+        <Fade direction="left" cascade damping={0.1}>
+          {StatsData.map((item, index) => {
+            return (
+              <StatsBox key={index}>
+                <Icon>{item.icon}</Icon>
+                <Title>{item.title}</Title>
+                <Description>{item.desc}</Description>
+              </StatsBox>
+            )
+          })}
+        </Fade>
       </Wrapper>
     </StatsContainer>
   )

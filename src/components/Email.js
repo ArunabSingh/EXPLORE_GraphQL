@@ -2,41 +2,46 @@ import React from "react"
 import styled from "styled-components"
 import EmailBg from "../assets/images/travel1.jpg"
 import { Button } from "./Button"
+import { Fade } from "react-awesome-reveal"
 
 const Email = () => {
   return (
     <EmailContainer id="contact">
       <EmailContent>
-        <h1>Get Access to Exclusive Offers</h1>
-        <p>Signup for the newsletter below.</p>
-        <form action="#">
-          <FormWrap>
-            <label htmlFor="email">
-              <input type="email" placeholder="Enter your email" id="email" />
-            </label>
-            <Button
-              as="button"
-              type="submit"
-              primary="true"
-              round="true"
-              css={`
-                height: 48px;
-                margin-top: 1rem;
+        <Fade direction="down" cascade damping={0.1}>
+          <h1>Get Access to Exclusive Offers</h1>
+          <p>Signup for the newsletter below.</p>
+        </Fade>
+        <Fade direction="up">
+          <form action="#">
+            <FormWrap>
+              <label htmlFor="email">
+                <input type="email" placeholder="Enter your email" id="email" />
+              </label>
+              <Button
+                as="button"
+                type="submit"
+                primary="true"
+                round="true"
+                css={`
+                  height: 48px;
+                  margin-top: 1rem;
 
-                @media screen and (max-width: 760px) {
-                  width: 100%;
-                  min-width: 350px;
-                }
-                @media screen and (max-width: 400px) {
-                  width: 100%;
-                  min-width: 250px;
-                }
-              `}
-            >
-              Sign Up
-            </Button>
-          </FormWrap>
-        </form>
+                  @media screen and (max-width: 760px) {
+                    width: 100%;
+                    min-width: 350px;
+                  }
+                  @media screen and (max-width: 400px) {
+                    width: 100%;
+                    min-width: 250px;
+                  }
+                `}
+              >
+                Sign Up
+              </Button>
+            </FormWrap>
+          </form>
+        </Fade>
       </EmailContent>
     </EmailContainer>
   )

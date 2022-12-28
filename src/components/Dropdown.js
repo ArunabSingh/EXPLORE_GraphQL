@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { Button } from "./Button"
-import { Link } from "gatsby"
 import { FaTimes } from "react-icons/fa"
 import { menuData } from "../data/MenuData"
 import { AnchorLink } from "gatsby-plugin-anchor-links"

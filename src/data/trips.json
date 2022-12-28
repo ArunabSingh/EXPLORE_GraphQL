@@ -1,26 +1,26 @@
 [
     {
-        "img": "../assets/images/travel1.jpg",
-        "alt": "Yo Yo",
-        "name": "Yo Yo",
+        "img": "../assets/images/travel4.jpg",
+        "alt": "Japan",
+        "name": "Shizuoko, Japan",
         "button": "View Destination"
     },
     {
         "img": "../assets/images/travel1.jpg",
-        "alt": "Yo Yo",
-        "name": "Yo Yo",
+        "alt": "Monaco",
+        "name": "Monaco",
         "button": "View Destination"
     },
     {
-        "img": "../assets/images/travel1.jpg",
-        "alt": "Yo Yo",
-        "name": "Yo Yo",
+        "img": "../assets/images/travel2.jpg",
+        "alt": "Portofino",
+        "name": "Portofino, Italy",
         "button": "View Destination"
     },
     {
-        "img": "../assets/images/travel1.jpg",
-        "alt": "Yo Yo",
-        "name": "Yo Yo",
+        "img": "../assets/images/travel3.jpg",
+        "alt": "Srinagar",
+        "name": "Srinagar, India",
         "button": "View Destination"
     }
 ]

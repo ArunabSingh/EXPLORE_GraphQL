@@ -1,14 +1,10 @@
 import React from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Button } from "./Button"
 import { ImLocation } from "react-icons/im"
-
-// import { merge, slideInDown, fadeIn } from 'react-animations';
-// const slideFade = merge(slideInDown, fadeIn);
-
-import { fadeIn } from 'react-animations';
+import { Fade } from "react-awesome-reveal"
 
 const Trips = ({ heading }) => {
   const data = useStaticQuery(graphql`
@@ -36,6 +32,7 @@ const Trips = ({ heading }) => {
     const tripsArray = []
     data.allTripsJson.edges.forEach((item, index) => {
       tripsArray.push(
+        <FadeContainer duration={1200} direction="down" cascade>
         <ProductCard key={index}>
           <ProductImg
             src={item.node.img.childImageSharp.fluid.src}
@@ -48,7 +45,7 @@ const Trips = ({ heading }) => {
               <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
             <Button
-              to="/trips"
+              to="/"
               primary="true"
               round="true"
               css={`
@@ -61,6 +58,7 @@ const Trips = ({ heading }) => {
             </Button>
           </ProductInfo>
         </ProductCard>
+        </FadeContainer>
       )
     })
 
@@ -105,6 +103,10 @@ const ProductsWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 `
+
+const FadeContainer = styled(Fade)`
+  width: 100%;
+`
 const ProductCard = styled.div`
   line-height: 2;
   width: 100%;
@@ -112,7 +114,6 @@ const ProductCard = styled.div`
   position: relative;
   border-radius: 10px;
   transition: 0.2s ease;
-  animation: 2s ${keyframes`${fadeIn}`} 1;
 `
 
 const ProductImg = styled(Img)`

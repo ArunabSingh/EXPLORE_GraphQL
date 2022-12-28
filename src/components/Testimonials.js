@@ -1,10 +1,10 @@
 import React from "react"
-import styled, {keyframes} from "styled-components"
+import styled from "styled-components"
 import Img from "gatsby-image"
 import { IoMdCheckmarkCircleOutline } from "react-icons/io"
 import { FaRegLightbulb } from "react-icons/fa"
 import { useStaticQuery, graphql } from "gatsby"
-import {fadeInLeft, fadeInRight} from 'react-animations'
+import { Fade } from "react-awesome-reveal"
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -33,46 +33,48 @@ const Testimonials = () => {
       <TopLine>Testimonials</TopLine>
       <Description>What are the people saying....</Description>
       <ContentWrapper>
-        <ColumnOne>
-          <Testimonial>
-            <FaRegLightbulb
-              css={`
-                color: #f9b19b;
-                font-size: 2rem;
-                margin-bottom: 1rem;
-              `}
-            />
-            <h3>Sara Kin</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat."
-            </p>
-          </Testimonial>
-
-          <Testimonial>
-            <IoMdCheckmarkCircleOutline
-              css={`
-                color: #f9b19b;
-                font-size: 2rem;
-                margin-bottom: 1rem;
-              `}
-            />
-            <h3>Cole Wexler</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat."
-            </p>
-          </Testimonial>
-        </ColumnOne>
-
+        <Fade duration={1400} direction="left" cascade>
+          <ColumnOne>
+            <Testimonial>
+              <FaRegLightbulb
+                css={`
+                  color: #f9b19b;
+                  font-size: 2rem;
+                  margin-bottom: 1rem;
+                `}
+              />
+              <h3>Sara Kin</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat."
+              </p>
+            </Testimonial>
+            <Testimonial>
+              <IoMdCheckmarkCircleOutline
+                css={`
+                  color: #f9b19b;
+                  font-size: 2rem;
+                  margin-bottom: 1rem;
+                `}
+              />
+              <h3>Cole Wexler</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat."
+              </p>
+            </Testimonial>
+          </ColumnOne>
+        </Fade>
         <ColumnTwo>
-          {data.allFile.edges.map((image, key) => (
-            <Images key={key} fluid={image.node.childImageSharp.fluid} />
-          ))}
+          <Fade direction="right" duration={2000}>
+            {data.allFile.edges.map((image, key) => (
+              <Images key={key} fluid={image.node.childImageSharp.fluid} />
+            ))}
+          </Fade>
         </ColumnTwo>
       </ContentWrapper>
     </TestimonialsContainer>
@@ -93,7 +95,6 @@ const TopLine = styled.p`
   font-size: 1rem;
   padding-left: 2rem;
   margin-bottom: 0.75rem;
-  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `
 const Description = styled.p`
   text-align: start;
@@ -101,7 +102,6 @@ const Description = styled.p`
   margin-bottom: 4rem;
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: bold;
-  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `
 
 const ContentWrapper = styled.div`
@@ -116,7 +116,7 @@ const ContentWrapper = styled.div`
 
 const ColumnOne = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(1fr);
 `
 
 const ColumnTwo = styled.div`
@@ -133,7 +133,6 @@ const ColumnTwo = styled.div`
 const Images = styled(Img)`
   border-radius: 10px;
   height: 100%;
-  animation: 3s ${keyframes`${fadeInRight}`} 1;
 `
 
 const Testimonial = styled.div`
@@ -149,5 +148,4 @@ const Testimonial = styled.div`
   p {
     color: #3b3b3b;
   }
-  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `

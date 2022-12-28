@@ -32,7 +32,7 @@ const Trips = ({ heading }) => {
     const tripsArray = []
     data.allTripsJson.edges.forEach((item, index) => {
       tripsArray.push(
-        <FadeContainer duration={1200} direction="down" cascade>
+        <FadeContainer duration={700} direction="up" cascade>
         <ProductCard key={index}>
           <ProductImg
             src={item.node.img.childImageSharp.fluid.src}

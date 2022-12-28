@@ -1,9 +1,10 @@
 import React from "react"
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 import Img from "gatsby-image"
 import { IoMdCheckmarkCircleOutline } from "react-icons/io"
 import { FaRegLightbulb } from "react-icons/fa"
 import { useStaticQuery, graphql } from "gatsby"
+import {fadeInLeft, fadeInRight} from 'react-animations'
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -92,6 +93,7 @@ const TopLine = styled.p`
   font-size: 1rem;
   padding-left: 2rem;
   margin-bottom: 0.75rem;
+  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `
 const Description = styled.p`
   text-align: start;
@@ -99,6 +101,7 @@ const Description = styled.p`
   margin-bottom: 4rem;
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: bold;
+  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `
 
 const ContentWrapper = styled.div`
@@ -130,6 +133,7 @@ const ColumnTwo = styled.div`
 const Images = styled(Img)`
   border-radius: 10px;
   height: 100%;
+  animation: 3s ${keyframes`${fadeInRight}`} 1;
 `
 
 const Testimonial = styled.div`
@@ -145,4 +149,5 @@ const Testimonial = styled.div`
   p {
     color: #3b3b3b;
   }
+  animation: 3s ${keyframes`${fadeInLeft}`} 1;
 `

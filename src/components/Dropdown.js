@@ -4,6 +4,7 @@ import { Button } from "./Button"
 import { Link } from "gatsby"
 import { FaTimes } from "react-icons/fa"
 import { menuData } from "../data/MenuData"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const Dropdown = ({ isOpen, toggle }) => {
   return (
@@ -36,7 +37,7 @@ const DropdownContainer = styled.div`
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #cdb53f;
+  background: #000;
   display: grid;
   align-items: center;
   top: 0;
@@ -56,7 +57,7 @@ const Icon = styled.div`
   outline: none;
 `
 const CloseIcon = styled(FaTimes)`
-  color: #000d1a;
+  color: #fff;
 `
 const DropdownWrapper = styled.div``
 const DropdownMenu = styled.div`
@@ -70,7 +71,7 @@ const DropdownMenu = styled.div`
     grid-template-rows: repeat(4, 60px);
   }
 `
-const DropdownLink = styled(Link)`
+const DropdownLink = styled(AnchorLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +83,7 @@ const DropdownLink = styled(Link)`
   transition: 0.3s ease-in-out;
 
   &:hover {
-    color: #000d1a;
+    color: #F26A2E;
   }
 `
 const BtnWrap = styled.div`

@@ -1,11 +1,16 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Button } from "./Button"
 import { ImLocation } from "react-icons/im"
 
-const Trips = ({heading}) => {
+// import { merge, slideInDown, fadeIn } from 'react-animations';
+// const slideFade = merge(slideInDown, fadeIn);
+
+import { fadeIn } from 'react-animations';
+
+const Trips = ({ heading }) => {
   const data = useStaticQuery(graphql`
     query TripsQuery {
       allTripsJson {
@@ -42,16 +47,17 @@ const Trips = ({heading}) => {
               <ImLocation />
               <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
-            <Button 
-              to="/trips" 
-              primary="true" 
+            <Button
+              to="/trips"
+              primary="true"
               round="true"
               css={`
                 position: absolute;
                 top: 420px;
                 font-size: 14px;
-              `}>
-                {item.node.button}
+              `}
+            >
+              {item.node.button}
             </Button>
           </ProductInfo>
         </ProductCard>
@@ -80,7 +86,7 @@ const ProductsContainer = styled.div`
 const ProductsHeading = styled.div`
   font-size: clamp(1.2rem, 5vw, 3rem);
   text-align: center;
-  margin-botton: 5rem;
+  margin-bottom: 5rem;
   color: #000;
 `
 
@@ -106,6 +112,7 @@ const ProductCard = styled.div`
   position: relative;
   border-radius: 10px;
   transition: 0.2s ease;
+  animation: 2s ${keyframes`${fadeIn}`} 1;
 `
 
 const ProductImg = styled(Img)`

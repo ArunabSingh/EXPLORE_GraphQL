@@ -1,7 +1,8 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { Button } from "./Button"
 import bgVideo from "../assets/videos/bgVideo2.mp4"
+import { slideInUp } from "react-animations"
 
 const Hero = () => {
   return (
@@ -18,8 +19,10 @@ const Hero = () => {
       </MainBg>
       <HeroContent>
         <HeroItems>
-          <MainH1>Unreal Destinations</MainH1>
-          <MainP>Out of this world</MainP>
+          <AnimatedItems>
+            <MainH1>Unreal Destinations</MainH1>
+            <MainP>Out of this world</MainP>
+          </AnimatedItems>
           <Button primary="true" big="true" round="true" to="#trips">
             Travel Now
           </Button>
@@ -112,4 +115,8 @@ const MainP = styled.p`
   font-size: clamp(1rem, 3vw, 3rem);
   margin-botton: 3.5rem;
   font-weight: 400;
+`
+
+const AnimatedItems = styled.div`
+  animation: 1s ${keyframes`${slideInUp}`} 1;
 `

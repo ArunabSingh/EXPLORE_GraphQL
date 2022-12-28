@@ -1,14 +1,34 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { FaBars } from "react-icons/fa"
 import { menuData } from "../data/MenuData"
 import { Button } from "./Button"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const Header = ({ toggle }) => {
+
+  const [offset, setOffset] = useState(0);
+  const [isUpper, setIsUpper] = useState(false);
+  const handleScroll = () => setOffset(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (offset > 20) {
+      setIsUpper(true);
+    } else {
+      setIsUpper(false);
+    }
+  }, [offset]);
+
   return (
-    <Nav>
+    <Nav className={isUpper ? "active" : ""}>
       <NavLink to="/">EXPLOREX</NavLink>
       <Bars onClick={toggle} />
       <NavMenu>
@@ -38,7 +58,15 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
+  transition: 1s ease;
   position: relative;
+
+  &.active {
+    width: 100%;
+    position: fixed;
+    top:0;
+    background-color: black;
+  }
 `
 
 const NavLink = styled(AnchorLink)`

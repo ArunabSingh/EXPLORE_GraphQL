@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "exploree-app",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple UI website to display trip destinations and coll animations.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Arunab Singh",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "babel-plugin-styled-components": "^2.0.7",

@@ -8,7 +8,7 @@ const Footer = () => {
       <FtLinksWrapper>
         <FtDesc>
           <h1>EXPLOREE TRAVEL</h1>
-          <p>Westrive to create the best experiences for our customers!</p>
+          <p>We strive to create the best experiences for our customers!</p>
         </FtDesc>
         <FtLinkItems>
           <FtLinkTitle>Contact Us</FtLinkTitle>
